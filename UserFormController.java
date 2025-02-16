@@ -5,6 +5,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class UserFormController implements DBCallback{
     private DBConnect db;
+    private ResultSet rs;
     private UserFormCallback callback;
     public UserFormController(){
         try{
@@ -73,5 +74,25 @@ public class UserFormController implements DBCallback{
         System.out.println(e);
     }
     return model;
+    }
+    public void updateTableDAtas(UserValues user){
+        try {
+            rs.moveToInsertRow();
+            rs.updateInt(1, 5);
+            rs.updateString(2, user.getName());
+            rs.updateString(3, user.getEmail());
+            rs.updateFloat(4, user.getHeight());
+            rs.insertRow();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+    public void deleteRow(){
+        try {
+            rs.last();
+            rs.deleteRow();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 }

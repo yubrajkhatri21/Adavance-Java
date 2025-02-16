@@ -15,6 +15,7 @@ public class UserForm extends JPanel{
     public JTextField tname,temail,theight;
     private UserFormController controller;
     public JButton submit;
+    public JButton showList;
 
     public UserForm() {
         setLayout(null);
@@ -45,8 +46,11 @@ public class UserForm extends JPanel{
         submit = new JButton("Submit");
         submit.setBounds(300, 400, 100, 30);
 
+        showList= new JButton("Show user lists");
+        showList.setBounds(420, 400, 150, 30);
 
-        add(title); add(username); add(email); add(height); add(tname); add(temail); add(theight); add(submit);
+
+        add(title); add(username); add(email); add(height); add(tname); add(temail); add(theight); add(submit);add(showList);
         controller= new UserFormController();
         submit.addActionListener(new ActionListener() {
             @Override
